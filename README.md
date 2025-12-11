@@ -37,3 +37,20 @@ SV-Core is a **fully executable subset** of a larger cognitive framework (the Li
 git clone https://github.com/alexjoseph-creator/sv-core
 cd sv-core
 pip install -r requirements.txt
+
+---
+
+## 📄 Scientific Paper
+
+The full theoretical and mathematical details are available in:
+
+**Vinas, Alexandre (2025). SV-Core: A Teleological Cognitive Architecture for Agentic Large Language Models.**  
+📌 Zenodo: https://doi.org/10.5281/zenodo.17901727
+
+---
+
+## 📬 Contact
+
+For research collaboration or access to extended SV architecture modules:  
+📧 cine4ever66@gmail.com
+
