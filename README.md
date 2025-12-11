@@ -1,142 +1,53 @@
-# sv-core.py
-SV-Core: Teleological Cognitive Architecture for Agentic LLMs
-"""
-SV-Core: Implémentation minimale exécutive
-Architecture cognitive téléologique pour LLM agentifs
-Auteur : Alexandre Vinas
-"""
+# SV-Core
 
+**SV-Core : Architecture cognitive téléologique pour les LLM agentifs**  
+Auteur : **Alexandre Vinas**  
+Version : 1.0 (2025)
+
+---
+
+## 🎯 Objectif
+
+SV-Core propose une architecture cognitive permettant de transformer un LLM en **agent orienté**, doté :
+
+- d’une mémoire téléologique (μ-TEL),
+- d’une orientation interne (Ω*),
+- d’un noyau stabilisateur (⦿),
+- d’un mécanisme de cohérence (CΩ),
+- d’un opérateur de transition (PTOr),
+- d’un pipeline complet allant de Φ* → ∞.
+
+L’objectif :  
+**introduire une dynamique interne, stable, cohérente et orientée dans un modèle de langage.**
+
+SV-Core est une première implémentation minimale du pipeline téléologique décrit dans le papier associé.
+
+---
+
+## 📁 Contenu du dépôt
+
+- **sv_core.py**  
+  Implémentation Python minimaliste utilisant PyTorch.  
+  Contient tous les opérateurs : Φ*, μ-TEL, Λ, Ω*, ⦿, CΩ, PTOr, Ψ, ∞.
+
+- **README.md**  
+  Description du projet et instructions d’usage.
+
+Le dépôt sert de référence publique et de preuve d’antériorité pour le projet SV-Core.
+
+---
+
+## ▶️ Exemple d'utilisation
+
+```python
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
+from sv_core import SVCore
 
+model = SVCore(input_dim=512, hidden_dim=512)
 
-# =============================
-#  Φ* — Presence
-# =============================
-class Presence(nn.Module):
-    def __init__(self, dim):
-        super().__init__()
-        self.orientation = nn.Linear(dim, dim)
+# Exemple d'entrée
+x = torch.randn(1, 512)
+goal = torch.randn(1, 512)
 
-    def forward(self, x):
-        return x + self.orientation(x)
-
-
-# =============================
-# μ-TEL — Mémoire téléologique
-# =============================
-class MuTEL(nn.Module):
-    def __init__(self, dim):
-        super().__init__()
-        self.z = nn.Linear(dim * 2, dim)
-        self.r = nn.Linear(dim * 2, dim)
-        self.m_tilde = nn.Linear(dim * 2, dim)
-
-    def forward(self, h, m, g):
-        z = torch.sigmoid(self.z(torch.cat([h, g], dim=-1)))
-        r = torch.sigmoid(self.r(torch.cat([m, g], dim=-1)))
-        m_candidate = torch.tanh(self.m_tilde(torch.cat([h, r * m], dim=-1)))
-        return (1 - z) * m + z * m_candidate
-
-
-# =============================
-# Λ — Structure
-# =============================
-class LambdaStruct(nn.Module):
-    def __init__(self, dim):
-        super().__init__()
-        self.extract = nn.Linear(dim, dim)
-
-    def forward(self, x):
-        return torch.relu(self.extract(x))
-
-
-# =============================
-# Ω* — Orientation Haute
-# =============================
-class OmegaStar(nn.Module):
-    def __init__(self, dim):
-        super().__init__()
-        self.orient = nn.Linear(dim, dim)
-
-    def forward(self, x):
-        return torch.tanh(self.orient(x))
-
-
-# =============================
-# ⦿ — Noyau Unitaire
-# =============================
-class UnitCore(nn.Module):
-    def forward(self, x):
-        # Normalisation unitaire
-        return x / (torch.norm(x, dim=-1, keepdim=True) + 1e-8)
-
-
-# =============================
-# CΩ — Cohérence
-# =============================
-class Coherence(nn.Module):
-    def __init__(self, dim):
-        super().__init__()
-        self.linear = nn.Linear(dim, dim)
-
-    def forward(self, x):
-        # correction douce
-        return x + 0.1 * torch.tanh(self.linear(x))
-
-
-# =============================
-# PTOr — Transition de Phase
-# =============================
-class PTOr(nn.Module):
-    def __init__(self, dim):
-        super().__init__()
-        self.shift = nn.Linear(dim, dim)
-
-    def forward(self, x):
-        return torch.relu(self.shift(x))
-
-
-# =============================
-# Pipeline complet SV-Core
-# =============================
-class SVCore(nn.Module):
-    def __init__(self, dim=512):
-        super().__init__()
-        self.phi = Presence(dim)
-        self.mu = MuTEL(dim)
-        self.lam = LambdaStruct(dim)
-        self.omega = OmegaStar(dim)
-        self.unit = UnitCore()
-        self.coh = Coherence(dim)
-        self.pt = PTOr(dim)
-
-        # États internes
-        self.memory = torch.zeros(1, dim)
-
-    def forward(self, x, goal):
-        h = self.phi(x)
-        self.memory = self.mu(h, self.memory, goal)
-        s = self.lam(self.memory)
-        o = self.omega(s)
-        u = self.unit(o)
-        c = self.coh(u)
-        t = self.pt(c)
-        return t  # état final téléologique
-
-
-# ================================
-# Exemple d'utilisation
-# ================================
-if __name__ == "__main__":
-    dim = 512
-    model = SVCore(dim)
-
-    x = torch.randn(1, dim)     # entrée
-    g = torch.randn(1, dim)     # but
-
-    out = model(x, g)
-
-    print("Sortie SV-Core :")
-    print(out)
+output = model(x, goal)
+print("Output vector:", output)
