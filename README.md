@@ -1,58 +1,95 @@
-# SV-Core
+SV-Core: Teleological Cognitive Architecture for LLM Agents
 
-**SV-Core : Architecture cognitive téléologique pour les LLM agentifs**  
-Auteur : **Alexandre Vinas**  
-Version : **1.0 (2025)**
+Author: Alexandre Vinas
+Version: 1.0
+Year: 2025
 
----
+SV-Core is a minimal executable prototype of a teleological cognitive architecture designed to equip Large Language Models (LLMs) with:
 
-## 🎯 Objectif
+structured internal dynamics
 
-SV-Core propose une architecture cognitive permettant de transformer un modèle de langage (LLM) en **agent orienté**, doté :
+goal-oriented memory
 
-- d’une **mémoire téléologique** (μ-TEL),
-- d’une **orientation interne** (Ω*),
-- d’un **noyau d’unité** (⦿),
-- d’un **centre cohérent** (CΩ),
-- d’un module de **projection** (PTOr),
-- d’une **interface supérieure** (Ψ → ∞).
+coherence stabilization
 
-L’objectif est de fournir une **API minimale**, testable et modulaire, afin d’explorer l’émergence d’un comportement agentif et d’une direction interne dans les modèles neuronaux.
+qualitative state transitions
 
----
+and an agent-level pipeline over standard LLMs
 
-## 🧠 Contenu du dépôt
 
-### `sv_core.py`
-Implémentation Python minimaliste utilisant PyTorch.  
-Contient les opérateurs suivants :
+This repository provides:
 
-- **Φ*** — Présence  
-- **μ-TEL** — Mémoire téléologique  
-- **Λ** — Structure  
-- **Ω*** — Orientation  
-- **⦿** — Noyau unitaire  
-- **CΩ** — Cohérence  
-- **PTOr** — Projection  
-- **Ψ / ∞** — Interface supérieure
+a functional PyTorch implementation (sv_core.py)
 
-### `README.md`
-Description du projet et instructions d’utilisation.
+a clean demonstration of the full operational pipeline
+
+a minimal example of usage
+
+
 
 ---
 
-## ▶️ Exemple d’utilisation
+🔷 Architecture Overview
 
-```python
+SV-Core implements the 9-stage cognitive pipeline:
+
+Φ* → μ-TEL → Λ → Ω* → ⦿ → CΩ → PTOr
+
+Each operator corresponds to a cognitive transformation:
+
+Operator	Function
+
+Φ*	Presence encoding
+μ-TEL	Teleological memory
+Λ	Structuring
+Ω*	High-level orientation
+⦿	Unitary core stabilization
+CΩ	Coherence correction
+PTOr	Phase transition operator
+
+
+The SVCore class assembles all modules to produce a goal-directed state update.
+
+
+---
+
+🔧 Installation
+
+pip install torch
+
+Clone the repository :
+
+git clone https://github.com/<ton_nom>/sv-core.git
+cd sv-core
+
+
+---
+
+🧪 Example Usage
+
 import torch
 from sv_core import SVCore
 
-# Initialisation du module
-model = SVCore(input_dim=512, hidden_dim=512)
+model = SVCore(dim=512)
 
-# Exemple d'entrée
-x = torch.randn(1, 512)
-goal = torch.randn(1, 512)
+x = torch.randn(1, 512)     # input vector
+goal = torch.randn(1, 512)  # teleological goal
 
-output = model(x, goal)
-print("Output vector:", output)
+out = model(x, goal)
+print(out)
+
+
+---
+
+📄 Files
+
+sv_core.py     → Minimal PyTorch implementation
+README.md       → Project description and usage
+
+
+---
+
+📘 License
+
+MIT License (recommended for open research).
+
