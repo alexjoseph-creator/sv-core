@@ -40,6 +40,19 @@ pip install -r requirements.txt
 
 ---
 
+import torch
+from sv_core import SVCore
+
+model = SVCore(dim=512)
+
+x = torch.randn(1, 512)
+goal = torch.randn(1, 512)
+
+output = model(x, goal)
+print(output)
+
+---
+
 ## 📄 Scientific Paper
 
 The full theoretical and mathematical details are available in:
@@ -49,8 +62,27 @@ The full theoretical and mathematical details are available in:
 
 ---
 
+sv-core/
+├── sv_core.py                # Core implementation
+├── sv_core_llama.py          # LLaMA integration template
+├── examples/
+│   └── demo.py
+├── paper/
+│   └── SV-Core_LaTeX.tex     # LaTeX source of the paper
+├── LICENSE
+└── README.md
+
+---
+
+## 📄 License
+
+This project is released under the **MIT License**.
+
+---
+
 ## 📬 Contact
 
 For research collaboration or access to extended SV architecture modules:  
 📧 cine4ever66@gmail.com
 
+---
