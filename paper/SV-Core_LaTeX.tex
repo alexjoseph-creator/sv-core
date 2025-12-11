@@ -1,0 +1,151 @@
+
+\begin{itemize}[leftmargin=1cm]
+    \item $\mu$-TEL --- goal-conditioned memory,
+    \item $\Lambda$ --- structural transformation,
+    \item $\Omega^*$ --- orientational shaping,
+    \item $\circledcirc$ --- unitary stabilization,
+    \item $C\Omega$ --- coherence field,
+    \item PTOr --- phase-transition operator.
+\end{itemize}
+
+Higher-level modules of the full SV architecture—such as hierarchical governance, multi-agent teleology, and ecological embedding—are deliberately out of scope.
+
+The purpose of this document is therefore two-fold:
+
+\begin{enumerate}[leftmargin=1cm]
+    \item to present a minimal operational prototype that researchers can directly test,
+    \item to establish a scientific foundation for forthcoming SV extensions.
+\end{enumerate}
+
+\section{Architecture Overview}
+
+\subsection{The Teleological Pipeline}
+
+The full pipeline is:
+
+\[
+\Phi^* \rightarrow \mu\text{-TEL} \rightarrow \Lambda \rightarrow \Omega^* \rightarrow \circledcirc \rightarrow C\Omega \rightarrow \text{PTOr}
+\]
+
+Each operator corresponds to a distinct cognitive function.
+
+\begin{itemize}[leftmargin=1cm]
+    \item \textbf{$\Phi^*$ — Presence}: initial orientational encoding.
+    \item \textbf{$\mu$-TEL — Teleological Memory}: gated memory updated toward a goal vector.
+    \item \textbf{$\Lambda$ — Structure}: extracts and organizes semantic features.
+    \item \textbf{$\Omega^*$ — Orientation}: produces directional activation.
+    \item \textbf{$\circledcirc$ — Unitary Core}: normalizes the state into a stable manifold.
+    \item \textbf{$C\Omega$ — Coherence Field}: smooth self-correction across cycles.
+    \item \textbf{PTOr — Phase Transition Operator}: creates a qualitative change producing a decision-ready vector.
+\end{itemize}
+
+\subsection{Design Principles}
+
+SV-Core follows four principles:
+
+\begin{enumerate}[leftmargin=1cm]
+    \item teleology precedes action,
+    \item no retraining required,
+    \item compositional modularity,
+    \item compatibility with modern LLMs.
+\end{enumerate}
+
+\section{Implementation Summary}
+
+SV-Core is implemented in approximately 200 lines of PyTorch:
+
+\begin{itemize}[leftmargin=1cm]
+    \item no custom CUDA kernels,
+    \item no model retraining,
+    \item fully differentiable,
+    \item memory registered via \texttt{register\_buffer}.
+\end{itemize}
+
+It includes a class per operator and an \texttt{SVCore} controller orchestrating the pipeline.
+
+\section{Integration with LLMs}
+
+\subsection{Hidden-State Extraction}
+
+Any transformer exposes hidden states. SV-Core uses the last-token embedding as the initial state $\Phi^*$.
+
+\subsection{Fusion Strategies}
+
+A minimal integration uses:
+
+\[
+\text{fused} = h_{\text{LLM}} + h_{\text{SV}}
+\]
+
+Other approaches (attention biasing, planning layers) are possible.
+
+\subsection{Agentic Behavior}
+
+SV-Core provides:
+
+\begin{itemize}[leftmargin=1cm]
+    \item persistent direction,
+    \item reduced drift,
+    \item more stable multi-step reasoning,
+    \item improved goal-conditioning.
+\end{itemize}
+
+\section{Scientific Motivation}
+
+LLMs show local competence without global control.  
+SV-Core implements:
+
+\begin{itemize}[leftmargin=1cm]
+    \item goal-aligned memory,
+    \item structural filtering,
+    \item manifold stabilization,
+    \item predictable phase transitions.
+\end{itemize}
+
+These ideas draw from dynamical systems, cognitive architectures, and attractor dynamics.
+
+\section{Experimental Expectations}
+
+Predicted behaviors include:
+
+\begin{enumerate}[leftmargin=1cm]
+    \item fewer contradictions,
+    \item more stable reasoning chains,
+    \item inspectable internal states,
+    \item reduced noise propagation,
+    \item identifiable phase-transition clusters.
+\end{enumerate}
+
+\section{Limitations}
+
+SV-Core is a minimal foundation with known constraints:
+
+\begin{enumerate}[leftmargin=1cm]
+    \item no learned teleology,
+    \item no large-scale experimental validation,
+    \item requires hidden-state access (not possible for closed APIs),
+    \item memory dimension must match LLM hidden size,
+    \item no meta-learning or reinforcement loop,
+    \item no multi-agent dynamics.
+\end{enumerate}
+
+\section{Future Work}
+
+SV-Core represents only the foundational layer of the Living System architecture.  
+Advanced components—hierarchical governance, multi-scale coherence, and extended agent dynamics—will be presented in future technical reports.
+
+\section{Conclusion}
+
+SV-Core introduces a minimal teleological architecture compatible with real LLMs.  
+It is modular, stable, reproducible, and provides a scientific basis for developing future agentic systems.
+
+\section*{Citation}
+
+Vinas, A. (2025). \textit{SV-Core: A Teleological Cognitive Architecture for Agentic Large Language Models}. Zenodo. \url{https://doi.org/10.5281/zenodo.17889413}
+
+\section*{Code Availability}
+
+GitHub: \url{https://github.com/alexjoseph-creator/sv-core}
+Zenodo: \url{https://doi.org/10.5281/zenodo.17889413}
+
+\end{document}
