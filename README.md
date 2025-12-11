@@ -1,72 +1,39 @@
-# SV-Core
-### A Teleological Cognitive Architecture for Agentic Large Language Models
+# SV-Core — Teleological Cognitive Architecture for Agentic LLMs
 
-**Author:** Alexandre Vinas (2025)
-
----
-
-## Overview
-
-SV-Core is a minimal teleological cognitive architecture designed to give Large Language Models:
-
-- goal-oriented memory (μ-TEL)
-- structured representations (Λ)
-- high-level orientation (Ω*)
-- stable internal states (⦿, CΩ)
-- phase transitions (PTOr)
-
-This implementation is lightweight, executable, and designed for integration with any LLM backend.
+**Author:** Alexandre Vinas (2025)  
+**Scientific Publication (Zenodo):** https://doi.org/10.5281/zenodo.17901727
 
 ---
 
-## Architecture Pipeline
+## 🧠 Overview
 
-Φ* → μ-TEL → Λ → Ω* → ⦿ → CΩ → PTOr
+SV-Core is a minimal, modular teleological architecture designed to add goal-oriented cognitive structure to Large Language Models (LLMs) without modifying model weights.
 
-Each operator transforms the internal cognitive state toward a stable goal-directed vector.
+This prototype provides:
 
----
+- goal-conditioned memory (μ-TEL)  
+- structural semantic transformation (Λ)  
+- orientation shaping (Ω*)  
+- internal stabilization (⦿, CΩ)  
+- phase-transition dynamics (PTOr)
 
-## Repository Contents
-
-- sv_core.py — main implementation  
-- sv_core_llama.py — template for LLaMA integration  
-- examples/demo.py — usage example  
-- LICENSE — MIT license  
-- paper/ (optional)
+SV-Core is a **fully executable subset** of a larger cognitive framework (the Living System, SV), published as a standalone research prototype.
 
 ---
 
-## Quickstart
+## 🧪 Features
 
-```python
-import torch
-from sv_core import SVCore
-
-model = SVCore(dim=512)
-
-x = torch.randn(1, 512)
-goal = torch.randn(1, 512)
-
-print(model(x, goal))
-```
+- Clean, ~200-line PyTorch implementation  
+- No retraining or fine-tuning required  
+- Integrates with any transformer hidden states (LLaMA, Mistral, Phi, Qwen…)  
+- Reproducible, interpretable, modular  
+- Backed by a peer-review-ready scientific paper
 
 ---
 
-## LLaMA Integration
+## 🔧 Installation
 
-A minimal integration template is provided in:
-
-**sv_core_llama.py**
-
----
-
-## License
-
-MIT License.
-
----
-
-## Citation
-
-Vinas, A. (2025). *SV-Core: A Teleological Cognitive Architecture for Agentic LLMs*.
+```bash
+git clone https://github.com/alexjoseph-creator/sv-core
+cd sv-core
+pip install -r requirements.txt
