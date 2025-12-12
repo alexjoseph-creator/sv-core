@@ -75,7 +75,8 @@ sv-core/
 ├── examples/
 │   └── demo.py
 ├── paper/
-│   └── SV-Core_LaTeX.tex     # LaTeX source of the paper
+│   ├── SV-Core_LaTeX.tex     # LaTeX source of the paper
+│   └── SV-Core.pdf           # Compiled paper (Zenodo version)
 ├── LICENSE
 └── README.md
 ```
